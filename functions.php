@@ -155,16 +155,21 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Redux config.
+ */
+require get_template_directory() . '/inc/sample-config.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-function int_customposttype_gallery() {
+function cpt_ourproduction() {
     $labels = array(
-        'name'                  => _x( 'Galleries', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Gallery', 'Post type singular name', 'textdomain' ),
+        'name'                  => _x( 'Наша продукция', 'Post type general name', 'textdomain' ),
+        'singular_name'         => _x( 'Наша продукция - элемент', 'Post type singular name', 'textdomain' ),
     );
  
     $args = array(
@@ -174,15 +179,41 @@ function int_customposttype_gallery() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'gallery' ),
+        'rewrite'            => array( 'slug' => 'ourproduction' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => null,
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+        'supports'           => array( 'thumbnail', 'title', 'editor' ),
     );
  
-    register_post_type( 'book', $args );
+    register_post_type( 'ourproduction', $args );
 }
  
-add_action( 'init', 'int_customposttype_gallery' );
+add_action( 'init', 'cpt_ourproduction' );
+
+function cpt_advantages() {
+    $labels = array(
+        'name'                  => _x( 'Преимущества', 'Post type general name', 'textdomain' ),
+        'singular_name'         => _x( 'Преимущество', 'Post type singular name', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'advantages' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array( 'thumbnail', 'editor' ),
+    );
+ 
+    register_post_type( 'advantages', $args );
+}
+ 
+add_action( 'init', 'cpt_advantages' );
