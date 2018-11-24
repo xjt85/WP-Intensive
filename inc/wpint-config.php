@@ -276,34 +276,49 @@
 
      */
 
-    Redux::setSection( $opt_name, array(
-        'title'            => __( 'Header settings', 'wpint' ),
-        'id'               => 'header',
-        'desc'             => __( 'Settings for site header', 'wpint' ),
-        'customizer_width' => '400px',
-        'icon'             => 'el el-torso'
-    ) );
 
+    
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Upload Logo', 'wpint' ),
-        'id'         => 'logo',
-        'desc'       => __( 'Upload your logo', 'wpint' ) . '<a href="//docs.reduxframework.com/core/fields/media/" target="_blank">docs.reduxframework.com/core/fields/media/</a>',
-        'subsection' => true,
+        'title'      => __( 'Header', 'wpint' ),
+        'id'         => 'header',
+        'desc'       => __( 'Header settings', 'wpint' ) . '<a href="//docs.reduxframework.com/core/fields/media/" target="_blank">docs.reduxframework.com/core/fields/media/</a>',
+        'icon'       => 'el el-arrow-up',
+        //'subsection' => true,
         'fields'     => array(
             array(
-                'id'       => 'wpint-logo',
+                'id'       => 'header_logo',
                 'type'     => 'media',
                 'url'      => true,
-                'title'    => __( 'Your Logo', 'wpint' ),
+                'title'    => __( 'Header logo', 'wpint' ),
                 'compiler' => 'true',
                 //'mode'      => false, // Can be set to false to allow any media type, or can also be set to any mime type.
-                'desc'     => __( 'Upload your logo', 'wpint' ),
+                'desc'     => __( 'Upload your header logo', 'wpint' ),
                 'subtitle' => __( 'Recommended size is 316px * 168px', 'wpint' ),
                 'default'  => '',
                 //'hint'      => array(
                 //    'title'     => 'Hint Title',
                 //    'content'   => 'This is a <b>hint</b> for the media field with a Title.',
                 //)
+            ),
+            array(
+                'id'       => 'header_email',
+                'type'     => 'text',
+                'title'    => __( 'Email', 'wpint' ),
+                'subtitle' => __( 'Set main email.', 'wpint' ),
+                'desc'     => __( 'This is the description field, again good for additional info.', 'wpint' ),
+                'validate' => 'email',
+                'msg'      => 'email is incorrect!',
+                'default'  => '',
+            ),
+            array(
+                'id'       => 'header_phone',
+                'type'     => 'text',
+                'title'    => __( 'Header phone', 'wpint' ),
+                'subtitle' => __( 'Specify phone number', 'wpint' ),
+                'desc'     => __( 'This is the description field, again good for additional info.', 'wpint' ),
+                'validate' => 'phone',
+                'msg'      => 'phone is incorrect!',
+                'default'  => '',
             ),
         )
     ) );

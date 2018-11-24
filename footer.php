@@ -30,7 +30,7 @@
 			<div class="row">
 				<div class="col-lg-12 d-flex justify-content-end">
 					<div class="metrics"><img src="<?php echo get_template_directory_uri(); ?>/img/metrics_dummy.png" alt="#" class="metrics__img"></div>
-					<div class="copyright">&copy; xjt, 2018.</div>
+					<div class="copyright">&copy; <a href="mailto:xjt@mail.ru" class="footer_dev-email">xjt, 2018.</a></div>
 				</div>
 			</div>
 		</div>

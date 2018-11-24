@@ -3177,7 +3177,7 @@ body {
     line-height: 1.65;
     font-family: robotocondensed, sans-serif;
     overflow-x: hidden;
-    color: #000
+    color: #000;
 }
 
 body input,
@@ -3215,22 +3215,10 @@ strong {
     font-weight: 700
 }
 
-.header {
-    display: block;
-    padding: 46px 0 100px;
-    min-height: 732px;
-    background-position: top center;
-    -webkit-background-size: cover;
-    background-size: cover
-}
-
-.header__top-line {
-    margin-bottom: 96px
-}
-
 .button {
     display: inline-block;
-    padding: 8px 50px;
+    padding: 3px 44px;
+    font-size: 20px;
     border: none;
     -webkit-border-radius: 25px;
     border-radius: 25px;
@@ -3265,6 +3253,67 @@ strong {
 .button-wrapper {
     text-align: center
 }
+
+.header {
+    display: block;
+    padding: 45px 0 100px;
+    min-height: 732px;
+    background-position: top center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family: "Roboto Condensed", sans-serif;
+    background-repeat: no-repeat
+}
+
+.header__top-line {
+    margin-bottom: 20px
+}
+
+.header__address,
+.header__email {
+    position: relative;
+    padding-left: 30px;
+    font-size: 18px
+}
+
+.header__logo-link {
+    display: block;
+    overflow: hidden;
+}
+
+.header__address {
+    margin-bottom: 25px;
+}
+
+.header__phone {
+    margin-bottom: 10px;
+}
+
+.header__phone {
+    padding-left: 33px;
+    position: relative;
+    line-height: 1em;
+    font-size: 30px;
+    color: #fff
+}
+
+.header__p1,
+.header__span {
+    text-transform: uppercase
+}
+
+.header__p1 {
+    font-size: 36px;
+    color: #f1ffcb
+}
+
+.header__span {
+    font-size: 18px;
+    line-height: 24px;
+    color: #647f20;
+    background-color: #f1ffcb
+}
+
 
 .icon-small {
     display: block;
@@ -3313,50 +3362,71 @@ strong {
     text-align: center
 }
 
-.header {
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1ffcb;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.main-menu__ul {
+    display: flex;
+    padding-left: 0;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+}
+
+.main-menu__ul a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px 30px;
+    color: #7b9638;
     font-family: "Roboto Condensed", sans-serif;
-    background-repeat: no-repeat
+    font-size: 20px;
 }
 
-.header__address,
-.header__email {
-    position: relative;
-    padding-left: 30px;
-    font-size: 18px
+.main-menu__ul a:hover {
+    background-color: #7b9638;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
 }
 
-.header__address {
-    margin-bottom: 25px;
+.search-form {
+    display: inline-block;
+    padding: 10px 5px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header__phone {
-    margin-bottom: 10px;
+.search-form input {
+    margin-right: 10px;
+    height: 100%;
+    border: 1px solid #7b9638;
 }
 
-.header__phone {
-    padding-left: 33px;
-    position: relative;
-    line-height: 1em;
-    font-size: 36px;
-    color: #fff
+.search-form input {
+    padding: 3px 5px;
+    text-indent: 10px;
+    border-radius: 5px;
 }
 
-.header__p1,
-.header__span {
-    text-transform: uppercase
+.search-button {
+    padding: 5px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    height: 100%;
 }
 
-.header__p1 {
-    font-size: 36px;
-    color: #f1ffcb
-}
-
-.header__span {
-    font-size: 18px;
-    line-height: 24px;
-    color: #647f20;
-    background-color: #f1ffcb
-}
+/*--------------раздел Продукция------------------*/
 
 .production {
     background-repeat: repeat-y;
@@ -3658,6 +3728,15 @@ strong {
 
 .footer-menu {
     padding-top: 61px
+}
+
+.footer_dev-email {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer_dev-email:hover {
+    text-decoration: none;
 }
 
 .footer-menu__item {
