@@ -11,20 +11,41 @@
 
 ?>
 
-	</div><!-- #content -->
+<?php global $wpint_options;?>
 
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-footer.png" alt="Лесторг" class="footer__logo"></div>
+				<div class="col-lg-3">
+					<?php $footer_logo_url = $wpint_options['footer_logo']['url'];?>
+					<div class="logo">
+						<a class="footer__logo-link" href="<?php echo home_url(); ?>">
+						<?php if($footer_logo_url) { ?>
+							<img src="<?php echo esc_url($footer_logo_url); ?>" alt="Лесторг" class="footer__logo">
+						<?php } else {
+							echo "No image.";
+						};?>
+						</a>
+					</div>
+				</div>
 				<div class="col-lg-9">
-					<ul class="footer-menu">
+					<nav class="footer-menu-w">
+						<?php
+							wp_nav_menu(array(
+								'theme_location' => 'footermenu-1',
+								'menu_id' => 'footer-menu',
+								'container' => 'ul',
+								'menu_class' => 'footer-menu',
+							));
+						?>
+					</nav>
+					<!-- <ul class="footer-menu">
 						<li class="footer-menu__item"><a href="#" class="footer-menu__link">Продукция</a></li>
 						<li class="footer-menu__item"><a href="#" class="footer-menu__link">Оплата и доставка</a></li>
 						<li class="footer-menu__item"><a href="#" class="footer-menu__link">Наши преимущества</a></li>
 						<li class="footer-menu__item"><a href="#" class="footer-menu__link">Фотогалерея</a></li>
 						<li class="footer-menu__item"><a href="#" class="footer-menu__link">Контакты</a></li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 			<div class="row">

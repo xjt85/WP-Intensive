@@ -45,6 +45,7 @@ if ( ! function_exists( 'wp_int_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'wp-int' ),
+			'footermenu-1' => esc_html__( 'FooterMenu', 'wp-int' ),
 		) );
 
 		/*
@@ -128,6 +129,7 @@ function wp_int_scripts() {
 	wp_enqueue_script( 'wp-int-js', get_template_directory_uri() . '/js/common.js', array(), '', true );
 	wp_enqueue_script( 'wp-int-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '', true );
 	wp_enqueue_script( 'wp-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), '', false );
+	wp_enqueue_script( 'wp-geolink', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Geolink', array(), '', false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
