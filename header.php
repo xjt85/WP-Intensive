@@ -29,6 +29,9 @@
 
 <body <?php body_class();?>>
 
+<?php if (is_front_page()) {
+	echo 'Header for main page';
+	} else { ?>
 <!--хедер-->
 <header class="header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/header-bg.png');">
 	<?php $header_logo_url = $wpint_options['header_logo']['url'];?>
@@ -126,3 +129,4 @@
 	</div>
 </header>
 
+<?php } ?>

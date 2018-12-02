@@ -3215,7 +3215,8 @@ strong {
     font-weight: 700
 }
 
-.button {
+.button,
+.wpcf7-submit {
     display: inline-block;
     padding: 3px 44px;
     font-size: 20px;
@@ -3230,7 +3231,8 @@ strong {
     cursor: pointer
 }
 
-.button:hover {
+.button:hover,
+.wpcf7-submit:hover {
     border: none;
     background-color: #e28126;
     -webkit-transition: all .1s ease-in;
@@ -3238,7 +3240,8 @@ strong {
     transition: all .1s ease-in
 }
 
-.button:active {
+.button:active,
+.wpcf7-submit:active {
     border: none;
     background-color: #c76c17;
     -webkit-transition: all .1s ease-in;
@@ -3792,6 +3795,8 @@ strong {
 }
 
 .contact__descr {
+    padding: 0;
+    margin: 0;
     margin-bottom: 50px;
     color: #5f5f5f;
 }
@@ -3828,18 +3833,29 @@ strong {
     margin-bottom: 20px;
 }
 
-.contact-form {
+.contact-form,
+.wpcf7-form {
     background-color: rgb(106, 77, 139);
     padding: 5%;
     color: rgb(106, 77, 139);
     border-radius: 10px;
 }
 
-.contact-form__h3 {
+.wpcf7-form h3 {
     color: #fff;
 }
 
-.contact-form__input {
+.wpcf7-form p,
+.wpcf7-form label,
+.wpcf7-form span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-form__input,
+.wpcf7-text,
+.wpcf7-textarea {
     padding: 10px 15px;
     display: block;
     width: 100%;
@@ -3847,11 +3863,13 @@ strong {
     border-radius: 5px;
 }
 
-.contact-form__input:last-of-type {
+.contact-form__input:last-of-type,
+.wpcf7-text:last-of-type {
     margin-bottom: 20px;
 }
 
-.button_form-send {
+.button_form-send,
+.wpcf7-submit {
     padding: 10px 20px;
     text-transform: uppercase;
     font-size: 16px;
@@ -3859,4 +3877,8 @@ strong {
     color: #000;
     background-color: #ff0;
     border-radius: 3px;
+}
+
+.breadcrumbs {
+    text-align: right;
 }

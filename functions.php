@@ -121,11 +121,21 @@ add_action( 'widgets_init', 'wp_int_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wp_int_scripts() {
-	wp_enqueue_style( 'wp-int-style', get_template_directory_uri() . '/css/main.css');
-	wp_enqueue_style( 'wp-int-fa', get_template_directory_uri() . '/libs/fontawesome/fontawesome-all.min.css');
+	wp_enqueue_style( 'wp-int-style', get_template_directory_uri() . '/style.css');
+	wp_enqueue_style( 'wp-int-mainstyle', get_template_directory_uri() . '/css/main.css');
+	wp_enqueue_style( 'wp-int-fontawesome', get_template_directory_uri() . '/libs/fontawesome/fontawesome-all.min.css');
 
 	wp_enqueue_script( 'wp-int-customizer', get_template_directory_uri() . '/js/customizer.js', array(), '', true );
 	wp_enqueue_script( 'wp-int-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '', true );
+	
+	wp_enqueue_script( 'wp-int-cbpBGSlideshow', get_template_directory_uri() . '/libs/cbpBGSlideshow.js', array(), '', true );
+	wp_enqueue_script( 'wp-int-isotopePkgd', get_template_directory_uri() . '/libs/isotope.pkgd.min.js', array(), '', true );
+	wp_enqueue_script( 'wp-int-flexslider', get_template_directory_uri() . '/libs/jquery.flexslider.js', array(), '', true );
+	wp_enqueue_script( 'wp-int-imagesloaded', get_template_directory_uri() . '/libs/jquery.imagesloaded.min.js', array(), '', true );
+	wp_enqueue_script( 'wp-int-prettyPhoto', get_template_directory_uri() . '/libs/jquery.prettyPhoto.js', array(), '', true );
+	wp_enqueue_script( 'wp-int-responsiveTabs', get_template_directory_uri() . '/libs/jquery.responsiveTabs.js', array(), '', true );
+	wp_enqueue_script( 'wp-int-modernizrCustom', get_template_directory_uri() . '/libs/modernizr.custom.js', array(), '', true );
+	
 	wp_enqueue_script( 'wp-int-js', get_template_directory_uri() . '/js/common.js', array(), '', true );
 	wp_enqueue_script( 'wp-int-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '', true );
 	wp_enqueue_script( 'wp-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), '', false );
@@ -136,6 +146,11 @@ function wp_int_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wp_int_scripts' );
+
+function ale_add_scripts($hook) {
+    wp_enqueue_script( 'aletheme_metaboxes', get_template_directory_uri() . '/inc/js/metaboxes.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox') );
+}
+add_action( 'admin_enqueue_scripts', 'ale_add_scripts', 10 );
 
 /**
  * Implement the Custom Header feature.
@@ -163,60 +178,23 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/wpint-config.php';
 
 /**
+ * Custom Post Types
+ */
+require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
+ * Breadcrumbs function
+ */
+require get_template_directory() . '/inc/breadcrumbs.php';
+
+/**
+ * Metaboxes function
+ */
+require get_template_directory() . '/inc/metaboxes.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-function cpt_ourproduction() {
-    $labels = array(
-        'name'                  => _x( 'Наша продукция', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Наша продукция - элемент', 'Post type singular name', 'textdomain' ),
-    );
- 
-    $args = array(
-        'labels'             => $labels,
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'ourproduction' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => null,
-        'supports'           => array( 'thumbnail', 'title', 'editor' ),
-    );
- 
-    register_post_type( 'ourproduction', $args );
-}
- 
-add_action( 'init', 'cpt_ourproduction' );
-
-function cpt_advantages() {
-    $labels = array(
-        'name'                  => _x( 'Преимущества', 'Post type general name', 'textdomain' ),
-        'singular_name'         => _x( 'Преимущество', 'Post type singular name', 'textdomain' ),
-    );
- 
-    $args = array(
-        'labels'             => $labels,
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'advantages' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => null,
-        'supports'           => array( 'thumbnail', 'editor' ),
-    );
- 
-    register_post_type( 'advantages', $args );
-}
- 
-add_action( 'init', 'cpt_advantages' );
