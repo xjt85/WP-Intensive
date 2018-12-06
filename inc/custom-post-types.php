@@ -76,3 +76,30 @@ function wpint_cpt_testimonials() {
 }
  
 add_action( 'init', 'wpint_cpt_testimonials' );
+
+
+function custom_taxonomy_for_wpint() {
+    $args = array(
+        'label'        => __( 'Location', 'wp-int' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+    $args_price = array(
+        'label'        => __( 'Price', 'wp-int' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+    $args_type = array(
+        'label'        => __( 'Type', 'wp-int' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+     
+    register_taxonomy( 'location', 'deals', $args );
+    register_taxonomy( 'price', 'deals', $args_price );
+    register_taxonomy( 'type', 'deals', $args_type );
+}
+add_action( 'init', 'custom_taxonomy_for_wpint', 0 );
