@@ -29,10 +29,7 @@
 
 <body <?php body_class();?>>
 
-<?php if (is_front_page()) {
-	echo 'Header for main page';
-	} else { ?>
-<!--хедер-->
+
 <header class="header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/header-bg.png');">
 	<?php $header_logo_url = $wpint_options['header_logo']['url'];?>
 	
@@ -127,6 +124,31 @@
 			</div>
 		</div>
 	</div>
+	<div class="q-search">
+	<div class="container">
+		<div class="q-search-wrap">
+		<form method="POST" action="<?php echo home_url("/deals"); ?>">
+			<?php $current_location = get_terms('location');?>
+			<select id="location" name="location">
+				<?php foreach($current_location as $location){?>
+					<option><?php echo $location->name; ?></option>
+				<?php } ?>
+			</select>
+			<?php $current_type = get_terms('type');?>
+			<select id="type" name="type">
+				<?php foreach($current_type as $type){?>
+					<option><?php echo $type->name; ?></option>
+				<?php } ?>
+			</select>
+			<?php $current_price = get_terms('price');?>
+			<select id="coast" name="price">
+				<?php foreach($current_price as $price){?>
+					<option><?php echo $price->name; ?></option>
+				<?php } ?>
+			</select>
+			<button class="btn btn-yellow">quick Search</button>
+			</form>
+		</div>
+	</div>
+	</div>
 </header>
-
-<?php } ?>

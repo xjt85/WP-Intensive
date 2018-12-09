@@ -79,14 +79,8 @@ add_action( 'init', 'wpint_cpt_testimonials' );
 
 
 function custom_taxonomy_for_wpint() {
-    $args = array(
+    $args_loc = array(
         'label'        => __( 'Location', 'wp-int' ),
-        'public'       => true,
-        'rewrite'      => false,
-        'hierarchical' => true
-    );
-    $args_price = array(
-        'label'        => __( 'Price', 'wp-int' ),
         'public'       => true,
         'rewrite'      => false,
         'hierarchical' => true
@@ -97,9 +91,15 @@ function custom_taxonomy_for_wpint() {
         'rewrite'      => false,
         'hierarchical' => true
     );
-     
-    register_taxonomy( 'location', 'deals', $args );
-    register_taxonomy( 'price', 'deals', $args_price );
+    $args_price = array(
+        'label'        => __( 'Price', 'wp-int' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+    
+    register_taxonomy( 'location', 'deals', $args_loc );
     register_taxonomy( 'type', 'deals', $args_type );
+    register_taxonomy( 'price', 'deals', $args_price );
 }
 add_action( 'init', 'custom_taxonomy_for_wpint', 0 );

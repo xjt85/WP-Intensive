@@ -30,27 +30,27 @@ get_header();
 						<li>
 						  <img src="<?php echo get_template_directory_uri(); ?>/img/montenegro.jpg" alt="" />
 						  <div class="hot-d-cap flex-caption">
-							<a href="#" class="offer">special offer</a>
-							<a href="#"><h3>Montenegro</h3></a>
-							<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', mak</p>
-							<div class="block-text-bottom">
-								<span class="price">$150</span>
-								<span><img src="<?php echo get_template_directory_uri(); ?>/img/plain.png" alt="" /></span>
-								<span class="date">5 days</span>
-							</div>
+								<a href="#" class="offer">special offer</a>
+								<a href="#"><h3>Montenegro</h3></a>
+								<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', mak</p>
+								<div class="block-text-bottom">
+									<span class="price">$150</span>
+									<span><img src="<?php echo get_template_directory_uri(); ?>/img/plain.png" alt="" /></span>
+									<span class="date">5 days</span>
+								</div>
 						  </div>
 						</li>
 						<li>
 						  <img src="<?php echo get_template_directory_uri(); ?>/img/montenegro.jpg" alt="" />
-						  <div class="hot-d-cap flex-caption">
-							<a href="#" class="offer">special offer</a>
-							<a href="#"><h3>Montenegro</h3></a>
-							<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', mak</p>
-							<div class="block-text-bottom">
-								<span class="price">$150</span>
-								<span><img src="<?php echo get_template_directory_uri(); ?>/img/plain.png" alt="" /></span>
-								<span class="date">5 days</span>
-							</div>
+								<div class="hot-d-cap flex-caption">
+								<a href="#" class="offer">special offer</a>
+								<a href="#"><h3>Montenegro</h3></a>
+								<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', mak</p>
+								<div class="block-text-bottom">
+									<span class="price">$150</span>
+									<span><img src="<?php echo get_template_directory_uri(); ?>/img/plain.png" alt="" /></span>
+									<span class="date">5 days</span>
+								</div>
 						  </div>
 						</li>
 						<li>
