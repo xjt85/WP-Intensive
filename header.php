@@ -131,7 +131,7 @@
 			<?php $current_location = get_terms('location');?>
 			<select id="location" name="location">
 				<?php foreach($current_location as $location){?>
-					<option><?php echo $location->name; ?></option>
+					<option value="<?php echo $location->slug; ?>"><?php echo $location->name; ?></option>
 				<?php } ?>
 			</select>
 			<?php $current_type = get_terms('type');?>

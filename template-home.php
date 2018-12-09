@@ -345,27 +345,27 @@ get_header();
  <!-- OUR BLOG -->
  <section class="o-blog">
 	<div class="container">
-	<h3>Our blog</h3>
-		<div class="blog-item">
-			<a href="blog-inside.html" ><p>Various versions have evolved over the years, sometimes by accident </p></a>
-			<span>25 Mar 2014</span><span><i class="fa fa-comment"></i>18</span>
-		</div>
-		<div class="blog-item">
-			<a href="blog-inside.html" ><p>Various versions have evolved over the years, sometimes by accident </p></a>
-			<span>25 Mar 2014</span><span><i class="fa fa-comment"></i>18</span>
-		</div>
-		<div class="blog-item">
-			<a href="blog-inside.html" ><p>Various versions have evolved over the years, sometimes by accident </p></a>
-			<span>25 Mar 2014</span><span><i class="fa fa-comment"></i>18</span>
-		</div>
-		<div class="blog-item twitter">
-			<div class="twit-l"><i class="fa fa-twitter"></i></div>
-			<div class="tr"></div>
-			<div class="twit-post">
-			           Lorem Ipsum passages, and more recently with desktop publishing software
-			                                                                           <span class="autor">@Corallina 1 day ago</span>
+		<h3>Our blog</h3>
+		<?php $blog_posts_list = new WP_Query(array('post_type' => 'post', 'posts_per_page' => 3));
+						if ($blog_posts_list->have_posts()) {
+							/* Выводим посты циклом */
+							while ($blog_posts_list->have_posts()) {
+									$blog_posts_list->the_post();
+						?>
+			<div class="blog-item">
+				<a href="blog-inside.html" ><p>Various versions have evolved over the years, sometimes by accident </p></a>
+				<span>25 Mar 2014</span><span><i class="fa fa-comment"></i>18</span>
 			</div>
-		</div>
+							<?php }; }; ?>
+			<div class="blog-item">
+				<a href="blog-inside.html" ><p>Various versions have evolved over the years, sometimes by accident </p></a>
+				<span>25 Mar 2014</span><span><i class="fa fa-comment"></i>18</span>
+			</div>
+			<div class="blog-item">
+				<a href="blog-inside.html" ><p>Various versions have evolved over the years, sometimes by accident </p></a>
+				<span>25 Mar 2014</span><span><i class="fa fa-comment"></i>18</span>
+			</div>
+			</div>
 	</div>
  </section>
  <section class="bottom">

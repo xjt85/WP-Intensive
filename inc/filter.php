@@ -6,7 +6,7 @@ function filter_deals_example($data)
     $args = array(
         'posts_per_page' => '5',
         'tax_query' => array(
-            'relation' => 'AND', //означает, что все условия в фильтре в header-е обязательны
+            'relation' => 'AND', //означает, что все условия в фильтре в header-е являются true
         ),
     );
 //если значение установлено
@@ -16,9 +16,6 @@ function filter_deals_example($data)
             'field' => 'name',
             'terms' => array($data['location']),
         ));
-        echo '<span style="color: red;">';
-        print_r(array($data['location']));
-        echo '</span>';
     }
     ;
     //если значение установлено
@@ -28,9 +25,6 @@ function filter_deals_example($data)
             'field' => 'name',
             'terms' => array($data['type']),
         ));
-        echo '<span style="color: green; font-weight: bold;">';
-        print_r(array($data['type']));
-        echo '</span>';
     }
     ;
     //если значение установлено
@@ -40,22 +34,20 @@ function filter_deals_example($data)
             'field' => 'name',
             'terms' => array($data['price']), //в виде массива,т.к. может принимать несколько значений
         ));
-        echo '<span style="color: blue;">';
-        print_r(array($data['price']));
-        echo '</span>';
     }
     ;
 
-    echo '<span style="color: olive; font-weight: bold;">';
-    print_r($args);
-    echo '</span>';
-    echo '<br>';
+    //echo '<span style="color: olive; font-weight: bold;">';
+    //print_r($args);
+    //echo '</span>';
+    //echo '<br>';
 //все вышеперечисленно вставляем в переменную
     $custom_filter = new WP_Query($args);
-
+    //если переменная $_POST не пустая, то выводим посты;
     if (!empty($_POST)) {
+        //в кастомном фильтре есть посты, то выводим посты;
         if ($custom_filter->have_posts()) {
-            /* Start the Loop */
+            /* Выводим посты циклом */
             while ($custom_filter->have_posts()) {
                 $custom_filter->the_post();
                 the_title();
@@ -67,24 +59,32 @@ function filter_deals_example($data)
         }
         ;
     } else {
+        //если поиск не производился - выдаем запрос по умолчанию
         $default_query = new WP_Query(array('post_type' => 'deals', 'post_per_page' => 5));
         $i = 0;
         if ($default_query->have_posts()) {
             /* Start the Loop */
             while ($default_query->have_posts()) {
                 $default_query->the_post();
-                $i++;
-                if ($i == 1) {
-
+                $i++;//счетчик для определения первого шаблона и его вывода в большом thumb
+                if ($i == 1) {//если пост - первый
+                    
                 } else {
-                    the_title();
-                }
-                echo '<br>';
+                    the_title(); //заголовок поста
+                    echo "<br>";
+                    the_content(); //контент поста
+                    echo "<br>";
+                    the_permalink();  //ссылка на страницу поста
+                    echo "<br>";
+                    the_excerpt();  //краткий контент
+                    echo "<br>";
+                    get_the_date();
+                    echo "<hr>";
+                };
 
-            }
+            };
 
-        }
+        };
 
-    }
-    ;
+    };
 };
